@@ -28,7 +28,7 @@ final class VerifyWebhookSignature
      */
     protected function isInvalidSignature(string $payload, string $signature): bool
     {
-        $hash = hash_hmac('sha256', $payload, Config::get('cashier-paystack.secret_key'));
+        $hash = hash_hmac('sha512', $payload, Config::get('cashier-paystack.secret_key'));
 
         return hash_equals($hash, $signature) === false;
     }

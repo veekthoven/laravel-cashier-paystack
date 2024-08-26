@@ -124,12 +124,9 @@ trait ManagesInvoices
         $response = Paystack::fetchInvoices($parameters);
         $paystackInvoices = $response->json('data');
 
-        // Here we will loop through the Paystack invoices and create our own custom Invoice
-        // instances that have more helper methods and are generally more convenient to
-        // work with than the plain Paystack objects are. Then, we'll return the array.
         if (! is_null($paystackInvoices && ! empty($paystackInvoices))) {
             foreach ($paystackInvoices as $invoice) {
-                $invoices[] = new Invoice($this, $invoice);
+                $invoices[] = $invoice;
             }
         }
 

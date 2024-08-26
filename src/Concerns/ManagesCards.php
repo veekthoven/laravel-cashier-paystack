@@ -16,11 +16,11 @@ trait ManagesCards
     public function cards($parameters = [])
     {
         $cards = [];
-        $paystackAuthorizations = $this->asPaystackCustomer()->authorizations;
+        $paystackAuthorizations = $this->asPaystackCustomer()['authorizations'];
         if (! is_null($paystackAuthorizations)) {
             foreach ($paystackAuthorizations as $card) {
                 if ($card['channel'] == 'card') {
-                    $cards[] = new Card($this, $card);
+                    $cards[] = $card;
                 }
             }
         }

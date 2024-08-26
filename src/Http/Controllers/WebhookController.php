@@ -3,18 +3,20 @@
 namespace veekthoven\Cashier\Http\Controllers;
 
 use Exception;
-use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
-use veekthoven\Cashier\Cashier;
-use veekthoven\Cashier\Events\SubscriptionCancelled;
-use veekthoven\Cashier\Events\SubscriptionCreated;
-use veekthoven\Cashier\Events\WebhookHandled;
-use veekthoven\Cashier\Events\WebhookReceived;
-use veekthoven\Cashier\Http\Middleware\VerifyWebhookSignature;
-use veekthoven\Cashier\Subscription;
+use Illuminate\Http\Request;
+use App\Events\PaymentFailed;
 use InvalidArgumentException;
+use App\Events\InvoiceCreated;
+use veekthoven\Cashier\Cashier;
+use Illuminate\Routing\Controller;
+use veekthoven\Cashier\Subscription;
+use veekthoven\Cashier\Events\WebhookHandled;
 use Symfony\Component\HttpFoundation\Response;
+use veekthoven\Cashier\Events\WebhookReceived;
+use veekthoven\Cashier\Events\SubscriptionCreated;
+use veekthoven\Cashier\Events\SubscriptionCancelled;
+use veekthoven\Cashier\Http\Middleware\VerifyWebhookSignature;
 
 class WebhookController extends Controller
 {
@@ -105,6 +107,48 @@ class WebhookController extends Controller
     }
 
     /**
+     * Handle customer invoice create.
+     */
+    protected function handleInvoiceCreate(array $payload)
+    {
+        $data = $payload['data'];
+
+        $billable = $this->resolveBillable($payload);
+
+        $subscription = $this->findSubscription($data['subscription']['subscription_code']);
+
+        InvoiceCreated::dispatch($billable, $subscription, $payload);
+    }
+
+    /**
+     * Handle customer subscription not renew.
+     */
+    protected function handleSubscriptionNotRenew(array $payload)
+    {
+        $data = $payload['data'];
+
+        $billable = $this->resolveBillable($payload);
+
+        $subscription = $this->findSubscription($data['subscription_code']);
+
+        SubscriptionCancelled::dispatch($billable, $subscription, $payload);
+    }
+
+    /**
+     * Handle customer invoice payment failed.
+     */
+    protected function handleInvoicePaymentFailed(array $payload)
+    {
+        $data = $payload['data'];
+
+        $billable = $this->resolveBillable($payload);
+
+        $subscription = $this->findSubscription($data['subscription']['subscription_code']);
+
+        PaymentFailed::dispatch($billable, $subscription, $payload);
+    }
+
+    /**
      * Get the model for the given subscription Code.
      *
      * @param  string  $subscriptionCode
@@ -120,7 +164,7 @@ class WebhookController extends Controller
      *
      * @throws InvalidCustomPayload
      */
-    private function resolveBillable(array $payload)
+    protected function resolveBillable(array $payload)
     {
         $customer = $payload['data']['customer']['customer_code'] ?? null;
 
