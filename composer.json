@@ -1,0 +1,56 @@
+{
+    "name": "initafricahq/cashier-paystack",
+    "description": "A Laravel Cashier Wrapper that provides an expressive, fluent interface to Paystack's subscription invoicing services.",
+    "keywords": ["laravel", "paystack", "billing", "cashier"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Init Africa Ltd",
+            "email": "hello@init.africa"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "dompdf/dompdf": "^2.0",
+        "guzzlehttp/guzzle": "^7.8",
+        "illuminate/database": "^10.0",
+        "illuminate/http": "^10.30",
+        "illuminate/routing": "^10.30",
+        "illuminate/support": "^10.0",
+        "illuminate/view": "^10.30",
+        "nesbot/carbon": "^2.0",
+        "symfony/http-kernel": "^6.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.13",
+        "mockery/mockery": "^1.6",
+        "orchestra/testbench": "^8.14",
+        "pestphp/pest": "^2.24"
+    },
+    "autoload": {
+        "psr-4": {
+            "InitAfricaHQ\\Cashier\\": "src/",
+            "InitAfricaHQ\\Cashier\\Database\\Factories\\": "database/factories/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "InitAfricaHQ\\Cashier\\CashierServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
