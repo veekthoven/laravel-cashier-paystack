@@ -1,18 +1,18 @@
 <?php
 
-namespace InitAfricaHQ\Cashier\Http\Controllers;
+namespace veekthoven\Cashier\Http\Controllers;
 
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
-use InitAfricaHQ\Cashier\Cashier;
-use InitAfricaHQ\Cashier\Events\SubscriptionCancelled;
-use InitAfricaHQ\Cashier\Events\SubscriptionCreated;
-use InitAfricaHQ\Cashier\Events\WebhookHandled;
-use InitAfricaHQ\Cashier\Events\WebhookReceived;
-use InitAfricaHQ\Cashier\Http\Middleware\VerifyWebhookSignature;
-use InitAfricaHQ\Cashier\Subscription;
+use veekthoven\Cashier\Cashier;
+use veekthoven\Cashier\Events\SubscriptionCancelled;
+use veekthoven\Cashier\Events\SubscriptionCreated;
+use veekthoven\Cashier\Events\WebhookHandled;
+use veekthoven\Cashier\Events\WebhookReceived;
+use veekthoven\Cashier\Http\Middleware\VerifyWebhookSignature;
+use veekthoven\Cashier\Subscription;
 use InvalidArgumentException;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -116,7 +116,7 @@ class WebhookController extends Controller
     }
 
     /**
-     * @return \InitAfricaHQ\Cashier\Billable
+     * @return \veekthoven\Cashier\Billable
      *
      * @throws InvalidCustomPayload
      */

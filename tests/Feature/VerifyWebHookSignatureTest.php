@@ -4,7 +4,7 @@ namespace Tests;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
-use InitAfricaHQ\Cashier\Http\Middleware\VerifyWebhookSignature;
+use veekthoven\Cashier\Http\Middleware\VerifyWebhookSignature;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 function sign($payload, $secret)

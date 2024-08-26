@@ -1,11 +1,11 @@
 <?php
 
-namespace InitAfricaHQ\Cashier\Concerns;
+namespace veekthoven\Cashier\Concerns;
 
 use Exception;
-use InitAfricaHQ\Cashier\Cashier;
-use InitAfricaHQ\Cashier\Paystack;
-use InitAfricaHQ\Cashier\ReferenceGenerator;
+use veekthoven\Cashier\Cashier;
+use veekthoven\Cashier\Paystack;
+use veekthoven\Cashier\ReferenceGenerator;
 
 trait ManagesPayments
 {

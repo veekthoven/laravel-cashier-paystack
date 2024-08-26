@@ -1,11 +1,11 @@
 <?php
 
-namespace InitAfricaHQ\Cashier\Events;
+namespace veekthoven\Cashier\Events;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-use InitAfricaHQ\Cashier\Subscription;
+use veekthoven\Cashier\Subscription;
 
 class SubscriptionCreated
 {

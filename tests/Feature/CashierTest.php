@@ -5,8 +5,8 @@ namespace Tests;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use InitAfricaHQ\Cashier\Customer;
-use InitAfricaHQ\Cashier\Paystack;
+use veekthoven\Cashier\Customer;
+use veekthoven\Cashier\Paystack;
 use Tests\Support\Http\Controllers\WebhookController;
 use Tests\Support\User;
 
@@ -142,7 +142,7 @@ it('can successfully create a subscription for a billable from a webhook', funct
         ],
     ]));
 
-    $controller = new \InitAfricaHQ\Cashier\Http\Controllers\WebhookController;
+    $controller = new \veekthoven\Cashier\Http\Controllers\WebhookController;
     $response = $controller($request);
 
     $this->assertEquals(200, $response->getStatusCode());

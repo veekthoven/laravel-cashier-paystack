@@ -1,12 +1,12 @@
 <?php
 
-namespace InitAfricaHQ\Cashier\Concerns;
+namespace veekthoven\Cashier\Concerns;
 
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Support\Collection;
-use InitAfricaHQ\Cashier\Invoice;
-use InitAfricaHQ\Cashier\Paystack;
+use veekthoven\Cashier\Invoice;
+use veekthoven\Cashier\Paystack;
 use InvalidArgumentException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 

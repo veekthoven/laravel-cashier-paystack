@@ -1,6 +1,6 @@
 <?php
 
-namespace InitAfricaHQ\Cashier;
+namespace veekthoven\Cashier;
 
 use Exception;
 use Illuminate\Support\Str;

@@ -1,9 +1,9 @@
 <?php
 
-namespace InitAfricaHQ\Cashier\Concerns;
+namespace veekthoven\Cashier\Concerns;
 
 use Illuminate\Support\Collection;
-use InitAfricaHQ\Cashier\Card;
+use veekthoven\Cashier\Card;
 
 trait ManagesCards
 {

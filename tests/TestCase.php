@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-use InitAfricaHQ\Cashier\CashierServiceProvider;
+use veekthoven\Cashier\CashierServiceProvider;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
 class TestCase extends OrchestraTestCase

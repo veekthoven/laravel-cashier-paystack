@@ -1,6 +1,6 @@
 <?php
 
-namespace InitAfricaHQ\Cashier;
+namespace veekthoven\Cashier;
 
 use Carbon\Carbon;
 use Dompdf\Dompdf;

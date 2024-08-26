@@ -1,6 +1,6 @@
 <?php
 
-namespace InitAfricaHQ\Cashier\Http\Middleware;
+namespace veekthoven\Cashier\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;

@@ -1,5 +1,5 @@
 
-# Laravel Cashier - Paystack Edition
+# Laravel Cashier For Paystack
 
 # Introduction
 Cashier Paystack provides an expressive, fluent interface to Paystack's subscription billing services. It handles almost all of the boilerplate subscription billing code you are dreading writing.
@@ -7,13 +7,13 @@ Cashier Paystack provides an expressive, fluent interface to Paystack's subscrip
 ## Composer
 First, add the Cashier package for Paystack to your dependencies:
 
-`composer require initafricahq/cashier-paystack`
+`composer require veekthoven/laravel-cashier-paystack`
 
 ## Configuration
 You can publish the configuration file using this command:
 
 ```shell
-php artisan vendor:publish --provider="InitAfricaHQ\Cashier\CashierServiceProvider"
+php artisan vendor:publish --provider="veekthoven\Cashier\CashierServiceProvider"
 ```
 A configuration-file named cashier-paystack.php with some sensible defaults will be placed in your config directory:
 ```php
@@ -61,7 +61,7 @@ Before using Cashier, we'll also need to prepare the database. You can simply pu
 Next, add the Billable trait to your model definition. This trait provides various methods to allow you to perform common billing tasks, such as creating subscriptions, applying coupons, and updating credit card information:
 
 ```php
-use InitAfricaHQ\Cashier\Billable;
+use veekthoven\Cashier\Billable;
 
 class User extends Authenticatable
 {
@@ -72,7 +72,7 @@ class User extends Authenticatable
 ## Currency Configuration
 The default Cashier currency is Nigeria Naira (NGN). You can change the default currency by calling the Cashier::useCurrency method from within the boot method of one of your service providers. The useCurrency method accepts two string parameters: the currency and the currency's symbol:
 ```php
-use InitAfricaHQ\Cashier\Cashier;
+use veekthoven\Cashier\Cashier;
 
 Cashier::useCurrency('ngn', '₦');
 Cashier::useCurrency('ghs', 'GH₵');
@@ -256,7 +256,7 @@ Once the customer has been created in Paystack, you may begin a subscription at 
 
 ## Payment Methods 
 ### Retrieving Authenticated Payment Methods
-The cards method on the billable model instance returns a collection of `InitAfricaHQ\Cashier\Card` instances:
+The cards method on the billable model instance returns a collection of `veekthoven\Cashier\Card` instances:
 ```php
 $cards = $user->cards();
 ```
@@ -279,7 +279,7 @@ You may however choose to override this with your own path by setting the PAYSTA
 ```php
 Route::post(
     'paystack/webhook',
-    '\InitAfricaHQ\Cashier\Http\Controllers\WebhookController'
+    '\veekthoven\Cashier\Http\Controllers\WebhookController'
 );
 ```
 Once you have registered your route, be sure to configure the webhook URL in your Paystack dashboard settings.
@@ -304,7 +304,7 @@ If you have additional Paystack webhook events you would like to handle, extend 
 
 namespace App\Http\Controllers;
 
-use InitAfricaHQ\Cashier\Http\Controllers\WebhookController as CashierController;
+use veekthoven\Cashier\Http\Controllers\WebhookController as CashierController;
 
 class WebhookController extends CashierController
 {

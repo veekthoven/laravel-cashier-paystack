@@ -1,12 +1,12 @@
 <?php
 
-namespace InitAfricaHQ\Cashier;
+namespace veekthoven\Cashier;
 
-use InitAfricaHQ\Cashier\Concerns\ManagesCards;
-use InitAfricaHQ\Cashier\Concerns\ManagesCustomer;
-use InitAfricaHQ\Cashier\Concerns\ManagesInvoices;
-use InitAfricaHQ\Cashier\Concerns\ManagesPayments;
-use InitAfricaHQ\Cashier\Concerns\ManagesSubscriptions;
+use veekthoven\Cashier\Concerns\ManagesCards;
+use veekthoven\Cashier\Concerns\ManagesCustomer;
+use veekthoven\Cashier\Concerns\ManagesInvoices;
+use veekthoven\Cashier\Concerns\ManagesPayments;
+use veekthoven\Cashier\Concerns\ManagesSubscriptions;
 
 trait Billable
 {

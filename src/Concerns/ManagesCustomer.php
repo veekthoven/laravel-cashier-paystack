@@ -1,12 +1,12 @@
 <?php
 
-namespace InitAfricaHQ\Cashier\Concerns;
+namespace veekthoven\Cashier\Concerns;
 
 use Exception;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
-use InitAfricaHQ\Cashier\Customer;
-use InitAfricaHQ\Cashier\Exceptions\InvalidCustomer;
-use InitAfricaHQ\Cashier\Paystack;
+use veekthoven\Cashier\Customer;
+use veekthoven\Cashier\Exceptions\InvalidCustomer;
+use veekthoven\Cashier\Paystack;
 
 trait ManagesCustomer
 {

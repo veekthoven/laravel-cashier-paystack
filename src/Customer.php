@@ -1,14 +1,14 @@
 <?php
 
-namespace InitAfricaHQ\Cashier;
+namespace veekthoven\Cashier;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
-use InitAfricaHQ\Cashier\Database\Factories\CustomerFactory;
+use veekthoven\Cashier\Database\Factories\CustomerFactory;
 
 /**
- * @property \InitAfricaHQ\Cashier\Billable $billable
+ * @property \veekthoven\Cashier\Billable $billable
  */
 class Customer extends Model
 {

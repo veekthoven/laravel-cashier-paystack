@@ -1,14 +1,14 @@
 <?php
 
-namespace InitAfricaHQ\Cashier\Concerns;
+namespace veekthoven\Cashier\Concerns;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Http\RedirectResponse;
-use InitAfricaHQ\Cashier\Cashier;
-use InitAfricaHQ\Cashier\Paystack;
-use InitAfricaHQ\Cashier\Subscription;
-use InitAfricaHQ\Cashier\SubscriptionBuilder;
+use veekthoven\Cashier\Cashier;
+use veekthoven\Cashier\Paystack;
+use veekthoven\Cashier\Subscription;
+use veekthoven\Cashier\SubscriptionBuilder;
 
 trait ManagesSubscriptions
 {

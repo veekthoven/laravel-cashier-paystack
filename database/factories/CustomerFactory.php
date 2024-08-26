@@ -1,9 +1,9 @@
 <?php
 
-namespace InitAfricaHQ\Cashier\Database\Factories;
+namespace veekthoven\Cashier\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use InitAfricaHQ\Cashier\Customer;
+use veekthoven\Cashier\Customer;
 
 class CustomerFactory extends Factory
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace InitAfricaHQ\Cashier\Events;
+namespace veekthoven\Cashier\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;

@@ -1,6 +1,6 @@
 <?php
 
-namespace InitAfricaHQ\Cashier\Exceptions;
+namespace veekthoven\Cashier\Exceptions;
 
 use Exception;
 

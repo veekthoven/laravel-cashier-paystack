@@ -1,12 +1,12 @@
 <?php
 
-namespace InitAfricaHQ\Cashier;
+namespace veekthoven\Cashier;
 
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
-use InitAfricaHQ\Cashier\Database\Factories\SubscriptionFactory;
+use veekthoven\Cashier\Database\Factories\SubscriptionFactory;
 use LogicException;
 
 class Subscription extends Model

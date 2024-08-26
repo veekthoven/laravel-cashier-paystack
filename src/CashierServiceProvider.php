@@ -1,10 +1,10 @@
 <?php
 
-namespace InitAfricaHQ\Cashier;
+namespace veekthoven\Cashier;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use InitAfricaHQ\Cashier\Http\Controllers\WebhookController;
+use veekthoven\Cashier\Http\Controllers\WebhookController;
 
 class CashierServiceProvider extends ServiceProvider
 {

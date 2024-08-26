@@ -1,11 +1,11 @@
 <?php
 
-namespace InitAfricaHQ\Cashier\Database\Factories;
+namespace veekthoven\Cashier\Database\Factories;
 
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use InitAfricaHQ\Cashier\Customer;
-use InitAfricaHQ\Cashier\Subscription;
+use veekthoven\Cashier\Customer;
+use veekthoven\Cashier\Subscription;
 
 class SubscriptionFactory extends Factory
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace InitAfricaHQ\Cashier;
+namespace veekthoven\Cashier;
 
 use Exception;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
-use InitAfricaHQ\Cashier\Exceptions\PaystackApiError;
+use veekthoven\Cashier\Exceptions\PaystackApiError;
 
 class Paystack
 {

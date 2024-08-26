@@ -1,6 +1,6 @@
 <?php
 
-namespace InitAfricaHQ\Cashier;
+namespace veekthoven\Cashier;
 
 use Carbon\Carbon;
 use Exception;
@@ -10,7 +10,7 @@ class SubscriptionBuilder
     /**
      * The model that is subscribing.
      *
-     * @var \InitAfricaHQ\Cashier\Billable
+     * @var \veekthoven\Cashier\Billable
      */
     protected $billable;
 
@@ -92,7 +92,7 @@ class SubscriptionBuilder
     /**
      * Add a new Paystack subscription to the model.
      *
-     * @return \InitAfricaHQ\Cashier\Subscription
+     * @return \veekthoven\Cashier\Subscription
      *
      * @throws \Exception
      */
@@ -118,7 +118,7 @@ class SubscriptionBuilder
     /**
      * Charge for a Paystack subscription.
      *
-     * @return \InitAfricaHQ\Cashier\Subscription
+     * @return \veekthoven\Cashier\Subscription
      *
      * @throws \Exception
      */
@@ -142,7 +142,7 @@ class SubscriptionBuilder
      * Create a new Paystack subscription.
      *
      * @param  string|null  $token
-     * @return \InitAfricaHQ\Cashier\Subscription
+     * @return \veekthoven\Cashier\Subscription
      *
      * @throws \Exception
      */

@@ -2,7 +2,7 @@
 
 namespace Tests\Support\Http\Controllers;
 
-use InitAfricaHQ\Cashier\Http\Controllers\WebhookController as Controller;
+use veekthoven\Cashier\Http\Controllers\WebhookController as Controller;
 
 class WebhookController extends Controller
 {
