@@ -253,7 +253,7 @@ Occasionally, you may wish to create a Paystack customer without beginning a sub
 ```php
 $user->createAsCustomer();
 ```
-Usually this is done with a new user signs up on your app. You can listen for the `Registered` event and called the `createAsCustomer` method in a listener.
+Usually this is done when a new user signs up on your app. You can listen for the `Registered` event and call the `createAsCustomer` method in the handle method of an event listener.
 
 ```php
 class CreatePaystackCustomer
@@ -305,7 +305,7 @@ By default, this controller will automatically handle cancelling subscriptions t
 Make sure you protect incoming requests with Cashier's included webhook signature verification middleware.
 
 ### Webhooks & CSRF Protection
-Since Paystack webhooks need to bypass Laravel's CSRF protection, be sure to list the URI as an exception in your VerifyCsrfToken middleware or list the route outside of the web middleware group. In Laravel 10 and earlier, this would be done in the `app/Http/Middleware/VerifyCsrfToken.php` file:
+Since Paystack webhooks need to bypass Laravel's CSRF protection, be sure to list the URI as an exception in your VerifyCsrfToken middleware. In Laravel 10 and earlier, this would be done in the `app/Http/Middleware/VerifyCsrfToken.php` file:
 ```php
 protected $except = [
     'paystack/*',
