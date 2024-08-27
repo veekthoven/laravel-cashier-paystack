@@ -1,8 +1,9 @@
+![Laravel Cashier For Paystack](https://github.com/veekthoven/laravel-cashier-paystack/blob/1.x/art/readme-header.png?raw=true)
 
 # Laravel Cashier For Paystack
 
 # Introduction
-Cashier Paystack provides an expressive, fluent interface to Paystack's subscription billing services. It handles almost all of the boilerplate subscription billing code you are dreading writing.
+Laravel Cashier Paystack provides an expressive, fluent interface to Paystack's subscription billing services. It handles almost all of the boilerplate subscription billing code you are dreading writing.
 
 ## Composer
 First, add the Cashier package for Paystack to your dependencies:
@@ -106,7 +107,7 @@ Additional User Details
 If you would like to specify additional customer details, you may do so by passing them as the second argument to the create method:
 ```php
 $user->newSubscription('default', 'PLN_cgumntiwkkda3cw')->create($auth_token, [
-    ',etadata' => json_encode(['pass_through' => 'customer data']),
+    'metadata' => json_encode(['pass_through' => 'customer data']),
 ]);
 ```
 To learn more about the additional fields supported by Paystack, check out paystack's documentation on customer creation or the corresponding Paystack documentation.
@@ -180,11 +181,11 @@ $user->subscription('default')->cancelNow();
 ```
 
 ### Resuming Subscriptions
-If a user has cancelled their subscription and you wish to resume it, use the resume method. The user must still be on their grace period in order to resume a subscription:
+Unfortunately, for Paystack, if a user cancelled their subscription there's no way to resume it, they'll have to create a new subscription. The enable subscription endpoint is for subscriptions that have reached the end of their lifecycle. Subscriptions that have completed their lifecycle can be reactivated with the enable subscription API by calling the resume method like so:
+
 ```php
 $user->subscription('default')->resume();
 ```
-If the user cancels a subscription and then resumes that subscription before the subscription has fully expired, they will not be billed immediately. Instead, their subscription will be re-activated, and they will be billed on the original billing cycle.
 
 ## Subscription Trials
 
@@ -252,6 +253,21 @@ Occasionally, you may wish to create a Paystack customer without beginning a sub
 ```php
 $user->createAsCustomer();
 ```
+Usually this is done when a new user signs up on your app. You can listen for the `Registered` event and call the `createAsCustomer` method in the handle method of an event listener.
+
+```php
+class CreatePaystackCustomer
+{
+    /**
+     * Handle the event.
+     */
+    public function handle(Registered $event): void
+    {
+        $event->user->createAsCustomer();
+    }
+}
+```
+
 Once the customer has been created in Paystack, you may begin a subscription at a later date.
 
 ## Payment Methods 
@@ -289,11 +305,30 @@ By default, this controller will automatically handle cancelling subscriptions t
 Make sure you protect incoming requests with Cashier's included webhook signature verification middleware.
 
 ### Webhooks & CSRF Protection
-Since Paystack webhooks need to bypass Laravel's CSRF protection, be sure to list the URI as an exception in your VerifyCsrfToken middleware or list the route outside of the web middleware group:
+Since Paystack webhooks need to bypass Laravel's CSRF protection, be sure to list the URI as an exception in your VerifyCsrfToken middleware. In Laravel 10 and earlier, this would be done in the `app/Http/Middleware/VerifyCsrfToken.php` file:
 ```php
 protected $except = [
     'paystack/*',
 ];
+```
+
+in Laravel 11 and up, this will be done in the `bootstap/app.php` file:
+```php
+return Application::configure(basePath: dirname(__DIR__))
+    ->withRouting(
+        //...
+    )
+    ->withMiddleware(function (Middleware $middleware) {
+        // ...
+
+        $middleware->validateCsrfTokens(
+            except: ['paystack/*']
+        );
+        //..
+    })
+    ->withExceptions(function (Exceptions $exceptions) {
+        //...
+    })->create();
 ```
 
 ### Defining Webhook Event Handlers
