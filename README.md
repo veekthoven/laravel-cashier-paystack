@@ -1,4 +1,4 @@
-![Laravel Cashier For Paystack](https://github.com/veekthoven/laravel-cashier-paystack/raw/HEAD/art/readme-header.png)
+![Laravel Cashier For Paystack](https://github.com/veekthoven/laravel-cashier-paystack/blob/1.x/art/readme-header.png?raw=true)
 
 # Laravel Cashier For Paystack
 
