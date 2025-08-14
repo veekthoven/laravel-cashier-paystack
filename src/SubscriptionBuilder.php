@@ -135,7 +135,7 @@ class SubscriptionBuilder
             ], $optionsMetadata)),
         ], $options);
 
-        return $this->billable->charge(100, $options);
+        return $this->billable->charge(1000000, $options);
     }
 
     /**
@@ -149,7 +149,8 @@ class SubscriptionBuilder
     public function create($token = null, array $options = [])
     {
         $payload = $this->getSubscriptionPayload(
-            $this->getPaystackCustomer(), $options
+            $this->getPaystackCustomer(),
+            $options
         );
 
         // Set the desired authorization you wish to use for this subscription here.
