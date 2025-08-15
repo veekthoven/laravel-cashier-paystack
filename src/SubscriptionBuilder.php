@@ -135,7 +135,7 @@ class SubscriptionBuilder
             ], $optionsMetadata)),
         ], $options);
 
-        return $this->billable->charge(1000000, $options);
+        return $this->billable->charge(100, $options);
     }
 
     /**
