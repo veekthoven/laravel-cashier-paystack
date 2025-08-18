@@ -135,7 +135,10 @@ class SubscriptionBuilder
             ], $optionsMetadata)),
         ], $options);
 
-        return $this->billable->charge(100, $options);
+        // Ignore the amount added here. The paystack plan will over-ride it
+        // and the amount will be determined by the plan.
+        // This is just to accomodate a bug in paystack.
+        return $this->billable->charge(1000000, $options);
     }
 
     /**
