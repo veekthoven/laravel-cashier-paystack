@@ -9,7 +9,7 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 
 function sign($payload, $secret)
 {
-    return hash_hmac('sha256', $payload, $secret);
+    return hash_hmac('sha512', $payload, $secret);
 }
 
 it('can successfully verify signature', function () {

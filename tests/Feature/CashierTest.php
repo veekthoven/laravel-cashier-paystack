@@ -10,6 +10,12 @@ use veekthoven\Cashier\Paystack;
 use Tests\Support\Http\Controllers\WebhookController;
 use Tests\Support\User;
 
+beforeEach(function () {
+    if (empty(config('cashier-paystack.secret_key'))) {
+        $this->markTestSkipped('PAYSTACK_SECRET_KEY is not set; skipping Paystack integration tests.');
+    }
+});
+
 function getTestCard()
 {
     return [

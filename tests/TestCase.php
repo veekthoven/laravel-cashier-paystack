@@ -42,6 +42,6 @@ class TestCase extends OrchestraTestCase
 
     protected function defineDatabaseMigrations()
     {
-        $this->loadLaravelMigrations(['--database' => 'testing']);
+        $this->loadMigrationsFrom(\Orchestra\Testbench\default_migration_path());
     }
 }
