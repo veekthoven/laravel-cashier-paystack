@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace veekthoven\Cashier\Events;
 
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Foundation\Events\Dispatchable;

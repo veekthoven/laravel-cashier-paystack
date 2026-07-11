@@ -178,4 +178,12 @@ class Paystack
     {
         return static::api('/transaction', 'get', []);
     }
+
+    /**
+     * Verify the status of a transaction by its reference
+     */
+    public static function verifyTransaction($reference)
+    {
+        return static::api("/transaction/verify/{$reference}", 'get', []);
+    }
 }
